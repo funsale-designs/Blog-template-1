@@ -1,29 +1,17 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
-
-/* Color Variables */
-:root {
-    --color-primary: #FF1493; /* Deep Pink */
-    --color-primary-light: #FF00FF; /* Fuchsia */
-    --color-accent1: #0000FF; /* Electric Blue */
-    --color-accent2: #32CD32; /* Lime Green */
-    --color-neutral-light: #FFFFFF; /* White */
-    --color-text-dark: #000000; /* Black */
-    --color-text-light: #F0F0F0; /* Slightly off-white for text on dark backgrounds */
-}
-
-/* Basic Reset & Box-Sizing */
-* {
+/* General Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: linear-gradient(to right top, #6DD5ED, #2193B0); /* Light Blue to Teal */
+    min-height: 100vh; /* Ensure gradient covers full height */
+    color: #333333;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--color-text-dark);
-    background-color: var(--color-neutral-light);
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .container {
@@ -32,26 +20,14 @@ body {
     padding: 0 20px;
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-primary);
-}
-
-a:hover {
-    color: var(--color-accent1);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--color-text-dark);
-    margin-bottom: 0.5em;
-}
-
-/* --- Header --- */
+/* Header Styles */
 .main-header {
-    background-color: var(--color-primary);
+    background-color: #FF6B6B; /* Vibrant Red */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-content {
@@ -61,156 +37,143 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo a {
+    color: #FFFFFF; /* White text for logo */
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
     font-weight: 700;
-    color: var(--color-neutral-light);
-    letter-spacing: -1px;
+    font-size: 1.8em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .main-nav .nav-links {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-}
-
-.main-nav .nav-links li {
-    margin-left: 30px;
+    gap: 30px;
 }
 
 .main-nav .nav-links a {
-    color: var(--color-neutral-light);
+    color: #FFFFFF; /* White text for nav links */
     font-weight: 700;
     font-size: 1.1em;
-    padding-bottom: 5px;
     transition: color 0.3s ease;
-    position: relative;
 }
 
-.main-nav .nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    background: var(--color-accent1);
-    left: 0;
-    bottom: 0;
-    transition: width 0.3s ease;
-}
-
-.main-nav .nav-links a:hover::after {
-    width: 100%;
+.main-nav .nav-links a:hover {
+    color: #FFD166; /* Vibrant Yellow on hover */
 }
 
 .hamburger-menu {
-    display: none; /* Hidden by default on desktop */
+    display: none; /* Hidden by default on larger screens */
     font-size: 1.8em;
-    color: var(--color-neutral-light);
+    color: #FFFFFF; /* White hamburger icon */
     cursor: pointer;
 }
 
-/* Mobile Nav Overlay */
+/* Mobile Navigation Overlay */
 .mobile-nav-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(78, 205, 196, 0.95); /* Teal overlay */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
-    transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
 }
 
 .mobile-nav-overlay.open {
-    transform: translateX(0); /* Slide in */
+    transform: translateX(0);
 }
 
-.mobile-nav-overlay .close-btn {
+.close-btn {
     position: absolute;
     top: 20px;
     right: 30px;
     font-size: 3em;
-    color: var(--color-neutral-light);
+    color: #FFFFFF;
     cursor: pointer;
 }
 
 .mobile-nav-links {
     list-style: none;
+    padding: 0;
     text-align: center;
 }
 
 .mobile-nav-links li {
-    margin: 25px 0;
+    margin-bottom: 30px;
 }
 
 .mobile-nav-links a {
-    color: var(--color-neutral-light);
+    color: #FFFFFF;
     font-size: 1.8em;
     font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .mobile-nav-links a:hover {
-    color: var(--color-accent1);
+    color: #FFD166;
 }
 
-/* --- Hero Section --- */
+/* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent1)); /* Blend primary & accent */
-    color: var(--color-neutral-light);
+    background: linear-gradient(45deg, #FF9A8B 0%, #FF6A88 50%, #FF99AC 100%); /* Warm coral to pink gradient */
+    color: #FFFFFF;
+    padding: 100px 0;
     text-align: center;
-    padding: 80px 20px;
-    border-bottom-left-radius: 50px; /* Trendy rounded corner */
-    border-bottom-right-radius: 50px;
-    margin-bottom: 40px;
+    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .hero-section h1 {
-    font-size: 3.2em;
-    margin-bottom: 15px;
-    color: var(--color-neutral-light);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
     line-height: 1.2;
 }
 
 .hero-section p {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-bottom: 30px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.btn {
+.btn-primary {
     display: inline-block;
-    background-color: var(--color-accent2); /* Lime Green CTA */
-    color: var(--color-text-dark);
+    background-color: #FFD166; /* Vibrant Yellow */
+    color: #333333; /* Dark text for button */
     padding: 15px 30px;
     border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.btn:hover {
-    background-color: #4CAF50; /* Slightly darker lime */
-    transform: translateY(-3px); /* Subtle lift effect */
+.btn-primary:hover {
+    background-color: #FFBF00; /* Darker yellow on hover */
+    transform: translateY(-3px);
 }
 
-/* --- Blog Posts Section --- */
+/* Blog Posts Section */
 .blog-posts-section {
-    padding: 40px 0;
+    background-color: #F8F8F8; /* Light grey background for contrast */
+    padding: 60px 0;
 }
 
 .blog-posts-section h2 {
+    color: #333333;
     text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5em;
-    margin-bottom: 50px;
-    color: var(--color-primary); /* Use primary for section titles */
 }
 
 .blog-grid {
@@ -220,171 +183,158 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .blog-card {
-    background-color: var(--color-neutral-light);
+    background-color: #FFFFFF;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Ensures image corners are rounded */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px; /* Space for content below image */
 }
 
 .blog-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .blog-card img {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-bottom: 15px;
 }
 
 .blog-card h3 {
-    padding: 15px 20px 0;
-    font-size: 1.6em;
+    padding: 0 20px; /* Internal padding for text */
+    margin-top: 0; /* Remove default h3 margin */
+    margin-bottom: 10px;
 }
 
 .blog-card h3 a {
-    color: var(--color-text-dark);
+    color: #4CAF50; /* Green for post titles */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.6em;
+    display: block; /* Allows proper spacing */
     transition: color 0.3s ease;
 }
 
 .blog-card h3 a:hover {
-    color: var(--color-primary);
+    color: #388E3C; /* Darker green on hover */
 }
 
+/* "Names on a Tree" Effect for Post Meta (Author Names) */
 .blog-card .post-meta {
     font-size: 0.9em;
-    color: #666;
-    padding: 0 20px;
-    margin-bottom: 10px;
+    color: #666666;
+    margin: 10px 20px; /* Internal padding for text */
+    position: relative; /* For pseudo-elements */
+    padding-left: 25px; /* Space for leaf icon */
+    display: flex;
+    align-items: center;
+    line-height: 1.5; /* Improve readability */
+}
+
+.blog-card .post-meta::before {
+    content: '\f1bb'; /* Unicode for tree icon from Font Awesome (fa-tree) */
+    font-family: 'Font Awesome 5 Free'; /* Ensure correct font family for FA 5 */
+    font-weight: 900; /* For solid icons */
+    color: #8BC34A; /* Leaf green color */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}
+
+/* Specific styling for the author name within post-meta for a "leaf" background */
+.blog-card .post-meta .author-name {
+    background-color: #DCEDC8; /* Light green background */
+    padding: 3px 8px;
+    border-radius: 15px;
+    color: #333333;
+    font-weight: bold;
+    margin-right: 5px; /* Space between name and date */
+    white-space: nowrap; /* Keep name on one line */
+    display: inline-block; /* Ensures padding and background apply correctly */
 }
 
 .blog-card p {
-    padding: 0 20px 15px;
-    font-size: 1em;
-    color: #444;
+    color: #555555;
+    line-height: 1.6;
+    margin: 0 20px 20px; /* Internal padding for text */
+    flex-grow: 1; /* Allows content to push read more to bottom */
 }
 
 .blog-card .read-more {
     display: inline-block;
-    background-color: var(--color-primary); /* Primary for "Read More" */
-    color: var(--color-neutral-light);
-    padding: 10px 20px;
-    margin: 0 20px 20px;
-    border-radius: 5px;
-    font-weight: 700;
-    transition: background-color 0.3s ease;
+    color: #2196F3; /* Bright Blue */
+    font-weight: bold;
+    margin-left: 20px; /* Internal padding for text */
+    transition: color 0.3s ease;
 }
 
 .blog-card .read-more:hover {
-    background-color: var(--color-accent1); /* Change to accent on hover */
+    color: #1976D2; /* Darker blue on hover */
 }
 
-/* --- Footer --- */
+/* Footer Styling */
 .main-footer {
-    background-color: var(--color-text-dark); /* Dark footer for contrast */
-    color: var(--color-text-light);
-    padding: 40px 0;
+    background-color: #333333; /* Dark grey */
+    color: #E0E0E0; /* Light grey text */
+    padding: 30px 0;
     text-align: center;
 }
 
-.main-footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
 .main-footer p {
+    margin-top: 0;
+    margin-bottom: 20px;
     font-size: 0.9em;
 }
 
 .main-footer .social-links a {
-    color: var(--color-neutral-light);
-    font-size: 1.5em;
+    color: #E0E0E0;
     margin: 0 10px;
+    font-size: 1.5em;
     transition: color 0.3s ease;
 }
 
 .main-footer .social-links a:hover {
-    color: var(--color-accent1); /* Accent color on hover */
+    color: #FFD166; /* Vibrant Yellow on hover */
 }
 
-/* --- Responsive Design --- */
-
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-    .hero-section h1 {
-        font-size: 2.8em;
-    }
-
-    .hero-section p {
-        font-size: 1.1em;
-    }
-
-    .blog-posts-section h2 {
-        font-size: 2em;
-    }
-}
-
-/* Mobile Devices (max-width: 767px) */
-@media (max-width: 767px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .main-nav .nav-links {
-        display: none; /* Hide desktop nav */
+        display: none; /* Hide desktop nav links */
     }
-
     .hamburger-menu {
-        display: block; /* Show hamburger */
+        display: block; /* Show hamburger on smaller screens */
     }
 
     .hero-section {
-        padding: 60px 20px;
-        border-bottom-left-radius: 30px;
-        border-bottom-right-radius: 30px;
+        padding: 80px 0;
     }
 
     .hero-section h1 {
-        font-size: 2.2em;
-    }
-
-    .hero-section p {
-        font-size: 1em;
+        font-size: 2.5em;
     }
 
     .blog-grid {
-        grid-template-columns: 1fr; /* Single column for mobile */
-    }
-
-    .blog-card {
-        margin-bottom: 20px;
-    }
-
-    .main-footer .container {
-        flex-direction: column;
+        grid-template-columns: 1fr; /* Stack cards on small screens */
     }
 }
 
-/* Small Phones (max-width: 480px) */
 @media (max-width: 480px) {
-    .logo a {
-        font-size: 1.5em;
-    }
-
     .hero-section h1 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
-    .btn {
-        padding: 12px 25px;
-        font-size: 1em;
-    }
-
-    .blog-posts-section h2 {
-        font-size: 1.8em;
-    }
-
-    .blog-card h3 {
-        font-size: 1.4em;
+    .close-btn {
+        font-size: 2.5em;
+        right: 20px;
     }
 }
